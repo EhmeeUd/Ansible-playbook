@@ -31,6 +31,7 @@ jobs:
               --template-file template.yml \
               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:7} \
               --region us-east-1
+      - destroy_environment
 
   # create_infrastructure: 
   #     docker:
@@ -72,7 +73,7 @@ jobs:
           name: Test job
           # Fail the job intentionally to simulate an error.
           command:  return 1
-            - destroy_environment 
+      - destroy_environment 
 
   # Exercise: Smoke Testing
   # smoke_test:
